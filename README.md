@@ -1,7 +1,7 @@
 Overview
 ========
 
-Docker image for Openhab (1.6.2).
+Docker image for Openhab
 
 
 Official DEMO Included
@@ -11,12 +11,12 @@ If you do not have a openHAB configuration yet, you can start this Docker withou
 
 PULL
 =======
-```docker pull tdeckers/openhab```
+```docker pull jshridha/openhab:1.7.0-SNAPSHOT-20150428```
 
 Building
 ========
 
-```docker build -t <username>/openhab```
+```docker build -t <username>/openhab:<tag>```
 
 Running
 =======
@@ -54,10 +54,10 @@ Europe/Brussels
 ```
 
 Example run command (with your openHAB config)
-```docker run -d -p 8080:8080 -v /tmp/configuration:/etc/openhab/ tdeckers/openhab```
+```docker run -d -p 8080:8080 -v /tmp/configuration:/etc/openhab/ jshridha/openhab:1.7.0-SNAPSHOT-20150428```
 
 Example run command (with Demo)
-```docker run -d -p 8080:8080 tdeckers/openhab```
+```docker run -d -p 8080:8080 jshridha/openhab:1.7.0-SNAPSHOT-20150428```
 
 Start the Demo with: ```http://[IP-of-Docker-Host]:8080/openhab.app?sitemap=demo```
 
@@ -66,7 +66,7 @@ HABmin
 
 HABmin is not included in this deployment.  However you can easily add is as follows:
 ```
-docker run -d -p 8080:8080 -v /<your_location>/webapps/habmin:/opt/openhab/webapps/habmin -v /<your_location>/openhab/config:/etc/openhab -v /<your_location>/openhab/addons-available/habmin:/opt/openhab/addons-available/habmin tdeckers/openhab
+docker run -d -p 8080:8080 -v /<your_location>/webapps/habmin:/opt/openhab/webapps/habmin -v /<your_location>/openhab/config:/etc/openhab -v /<your_location>/openhab/addons-available/habmin:/opt/openhab/addons-available/habmin jshridha/openhab:1.7.0-SNAPSHOT-20150428
 ```
 
 Then add these lines to addon.cfg
@@ -82,3 +82,4 @@ Contributors
 * TimWeyand
 * dprus
 * tdeckers
+* jshridha

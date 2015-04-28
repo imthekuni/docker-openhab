@@ -2,7 +2,6 @@
 # * configuration is injected
 #
 FROM ubuntu:14.04
-MAINTAINER Tom Deckers <tom@ducbase.com>
 
 RUN apt-get -y update
 RUN apt-get -y upgrade

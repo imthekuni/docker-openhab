@@ -8,6 +8,8 @@ RUN apt-get -y update && \
   apt-get -y install unzip supervisor wget && \
   apt-get -y clean
 
+WORKDIR /root
+
 # Download and install Oracle JDK
 # For direct download see: http://stackoverflow.com/questions/10268583/how-to-automate-download-and-installation-of-java-jdk-on-linux
 RUN wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" -O /tmp/jdk-7u67-linux-x64.tar.gz http://download.oracle.com/otn-pub/java/jdk/7u67-b01/jdk-7u67-linux-x64.tar.gz

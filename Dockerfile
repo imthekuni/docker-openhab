@@ -3,9 +3,10 @@
 #
 FROM ubuntu:14.04
 
-RUN apt-get -y update
-RUN apt-get -y upgrade
-RUN apt-get -y install unzip supervisor wget
+RUN apt-get -y update && \
+  apt-get -y upgrade && \
+  apt-get -y install unzip supervisor wget && \
+  apt-get -y clean
 
 # Download and install Oracle JDK
 # For direct download see: http://stackoverflow.com/questions/10268583/how-to-automate-download-and-installation-of-java-jdk-on-linux

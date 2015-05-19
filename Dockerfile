@@ -12,9 +12,9 @@ WORKDIR /root
 
 # Download and install Oracle JDK
 # For direct download see: http://stackoverflow.com/questions/10268583/how-to-automate-download-and-installation-of-java-jdk-on-linux
-RUN wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" -O /tmp/jdk-7u67-linux-x64.tar.gz http://download.oracle.com/otn-pub/java/jdk/7u67-b01/jdk-7u67-linux-x64.tar.gz
-RUN tar -zxC /opt -f /tmp/jdk-7u67-linux-x64.tar.gz
-RUN ln -s /opt/jdk1.7.0_67 /opt/jdk7
+RUN wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" -O /tmp/jdk-7u79-linux-x64.tar.gz http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz
+RUN tar -zxC /opt -f /tmp/jdk-7u79-linux-x64.tar.gz
+RUN ln -s /opt/jdk1.7.0_79 /opt/jdk7
 
 ENV OPENHAB_VERSION SNAPSHOT
 

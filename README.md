@@ -11,7 +11,7 @@ If you do not have a openHAB configuration yet, you can start this Docker withou
 
 PULL
 =======
-```docker pull jshridha/openhab:1.7.0-SNAPSHOT-20150428```
+```docker pull jshridha/openhab:1.7.0-SNAPSHOT-20150519```
 
 Building
 ========

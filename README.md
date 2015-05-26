@@ -11,7 +11,7 @@ If you do not have a openHAB configuration yet, you can start this Docker withou
 
 PULL
 =======
-```docker pull jshridha/openhab:1.7.0-SNAPSHOT-20150519```
+```docker pull jshridha/openhab:1.7.0-20150526```
 
 Building
 ========
@@ -54,10 +54,10 @@ Europe/Brussels
 ```
 
 Example run command (with your openHAB config)
-```docker run -d -p 8080:8080 -v /tmp/configuration:/etc/openhab/ jshridha/openhab:1.7.0-SNAPSHOT-20150428```
+```docker run -d -p 8080:8080 -v /tmp/configuration:/etc/openhab/ jshridha/openhab:1.7.0-20150526```
 
 Example run command (with Demo)
-```docker run -d -p 8080:8080 jshridha/openhab:1.7.0-SNAPSHOT-20150428```
+```docker run -d -p 8080:8080 jshridha/openhab:1.7.0-20150526```
 
 Start the Demo with: ```http://[IP-of-Docker-Host]:8080/openhab.app?sitemap=demo```
 
@@ -66,7 +66,7 @@ HABmin
 
 HABmin is not included in this deployment.  However you can easily add is as follows:
 ```
-docker run -d -p 8080:8080 -v /<your_location>/webapps/habmin:/opt/openhab/webapps/habmin -v /<your_location>/openhab/config:/etc/openhab -v /<your_location>/openhab/addons-available/habmin:/opt/openhab/addons-available/habmin jshridha/openhab:1.7.0-SNAPSHOT-20150428
+docker run -d -p 8080:8080 -v /<your_location>/webapps/habmin:/opt/openhab/webapps/habmin -v /<your_location>/openhab/config:/etc/openhab -v /<your_location>/openhab/addons-available/habmin:/opt/openhab/addons-available/habmin jshridha/openhab:1.7.0-20150526
 ```
 
 Then add these lines to addon.cfg

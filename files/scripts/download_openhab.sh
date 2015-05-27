@@ -9,7 +9,7 @@ then
 else
   wget --quiet --no-check-certificate --no-cookies -O /tmp/distribution-runtime.zip https://bintray.com/artifact/download/openhab/bin/distribution-$OPENHAB_VERSION-runtime.zip
   wget --quiet --no-check-certificate --no-cookies -O /tmp/distribution-addons.zip https://bintray.com/artifact/download/openhab/bin/distribution-$OPENHAB_VERSION-addons.zip
-  wget --quiet --no-check-certificate --no-cookies -O /tmp/distribution-runtime.zip https://bintray.com/artifact/download/openhab/bin/distribution-$OPENHAB_VERSION-demo-configuration.zip
+  wget --quiet --no-check-certificate --no-cookies -O /tmp/distribution-demo.zip https://bintray.com/artifact/download/openhab/bin/distribution-$OPENHAB_VERSION-demo-configuration.zip
 fi
 
 wget --quiet --no-check-certificate --no-cookies -O /tmp/org.openhab.io.myopenhab-1.4.0-SNAPSHOT.jar https://my.openhab.org/downloads/org.openhab.io.myopenhab-1.4.0-SNAPSHOT.jar

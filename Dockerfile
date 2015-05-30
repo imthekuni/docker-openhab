@@ -5,7 +5,7 @@ FROM ubuntu:14.04
 
 RUN apt-get -y update && \
   apt-get -y upgrade && \
-  apt-get -y install unzip supervisor wget && \
+  apt-get -y install unzip supervisor wget ssh && \
   apt-get -y clean
 
 WORKDIR /root

@@ -38,7 +38,7 @@ RUN \
 #
 RUN /root/docker-files/scripts/download_openhab.sh
 
-RUN rm -rf /root/*
+RUN rm -rf /root/* && rm -rf /tmp/*
 
 EXPOSE 8080 8443 5555 9001
 

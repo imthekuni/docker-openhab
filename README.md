@@ -11,7 +11,7 @@ If you do not have a openHAB configuration yet, you can start this Docker withou
 
 PULL
 =======
-```docker pull jshridha/openhab:1.7.0-release-20150526```
+```docker pull jshridha/openhab:1.7.0-release-20150729b```
 
 Building
 ========
@@ -48,25 +48,42 @@ org.openhab.persistence.rrd4j
 * The container supports starting without network (--net="none"), and adding network interfaces using pipework.
 * You can add a timezone file in the configurations directory, which will be placed in /etc/timezone. Default: UTC
 
-Example content for timezone:
+**Example**: content for timezone:
 ```
 Europe/Brussels
 ```
 
-Example run command (with your openHAB config)
-```docker run -d -p 8080:8080 -v /tmp/configuration:/etc/openhab/ jshridha/openhab:1.7.0-release-20150526```
+**Example**: run command (with your openHAB config)
+```
+docker run -d -p 8080:8080 -v /tmp/configuration:/etc/openhab/ jshridha/openhab:1.7.0-release-20150729b
+```
 
-Example run command (with Demo)
-```docker run -d -p 8080:8080 jshridha/openhab:1.7.0-release-20150526```
-
-Start the Demo with: ```http://[IP-of-Docker-Host]:8080/openhab.app?sitemap=demo```
-
+**Example**: run command (with Demo)
+```
+docker run -d -p 8080:8080 jshridha/openhab:1.7.0-release-20150729b
+```
+**Example**: Map configuration and logging directory as well as allow access to Supervisor:
+```
+docker run -d -p 8080:8080 -p 9001:9001 -v /tmp/configurations/:/etc/openhab -v /tmp/logs:/opt/openhab/logs wetware/openhab
+```
+**Example**: run demo configuration:
+```
+docker run -d -p 8080:8080 jshridha/openhab:1.7.0-release-20150729b
+```
+Start the demo with:
+```
+http://[IP-of-Docker-Host]:8080/openhab.app?sitemap=demo
+```
+Access Supervisor with:
+```
+http://[IP-of-Docker-Host]:9001
+```
 HABmin
 =======
 
 HABmin is not included in this deployment.  However you can easily add is as follows:
 ```
-docker run -d -p 8080:8080 -v /<your_location>/webapps/habmin:/opt/openhab/webapps/habmin -v /<your_location>/openhab/config:/etc/openhab -v /<your_location>/openhab/addons-available/habmin:/opt/openhab/addons-available/habmin jshridha/openhab:1.7.0-release-20150526
+docker run -d -p 8080:8080 -v /<your_location>/webapps/habmin:/opt/openhab/webapps/habmin -v /<your_location>/openhab/config:/etc/openhab -v /<your_location>/openhab/addons-available/habmin:/opt/openhab/addons-available/habmin jshridha/openhab:1.7.0-release-20150729b
 ```
 
 Then add these lines to addon.cfg

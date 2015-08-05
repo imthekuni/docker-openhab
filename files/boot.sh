@@ -18,32 +18,13 @@ fi
 
 SOURCE=/opt/openhab/addons-available
 DEST=/opt/openhab/addons
-ADDONFILE=$CONFIG_DIR/addons.cfg
 
-function addons {
-  # Remove all links first
-  rm $DEST/*
-
-  # create new links based on input file
-  while read STRING
-  do
-    STRING=${STRING%$'\r'}
-    echo Processing $STRING...
-    if [ -f $SOURCE/$STRING-*.jar ]
-    then
-      ln -s $SOURCE/$STRING-*.jar $DEST/
-      echo link created.
-    else
-      echo not found.
-    fi
-  done < "$ADDONFILE"
-}
-
-if [ -f "$ADDONFILE" ]
+if [ -d $CONFIG_DIR/addons ]
 then
-  addons
+  ln -s /etc/openhab/addons $DEST
 else
-  echo addons.cfg not found.
+  cp -r $SOURCE $CONFIG_DIR/addons 
+  ln -s /etc/openhab/addons $DEST
 fi
 
 ###########################################
@@ -64,7 +45,6 @@ else
   cp -r /opt/openhab/configurations/* /etc/openhab/ && rm -r /opt/openhab/configurations
   ln -s /etc/openhab /opt/openhab/configurations
   cp -r /opt/openhab/demo-configuration/configurations/* /etc/openhab/ && rm -r /opt/openhab/demo-configuration/configurations/*
-  cp -r /opt/openhab/demo-configuration/addons/* /opt/openhab/addons/ && rm -r /opt/openhab/demo-configuration/addons/*
   cp /etc/openhab/openhab_default.cfg /etc/openhab/openhab.cfg
 fi
 

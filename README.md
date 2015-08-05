@@ -23,7 +23,7 @@ Running
 
 * The image exposes openHAB ports 8080, 8443, 5555 and 9001 (supervisord).
 * It expects you to make a configurations directory on the host to /etc/openhab.  This allows you to inject your openhab configuration into the container (see example below).
-* If no configuration is initially specified, the demo files are used and copied to the volume moutn path (/etc/openhab)
+* If no configuration is initially specified, the demo files are used and copied to the volume mount path (/etc/openhab)
 
 * The openHAB process is managed using supervisord.  You can manage the process (and view logs) by exposing port 9001.
 * The container supports starting without network (--net="none"), and adding network interfaces using pipework.

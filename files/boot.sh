@@ -59,12 +59,13 @@ else
   echo
   echo                = using demo files =
   echo
-  echo Consider running the Docker with a openhab configuration
   echo 
   echo --------------------------------------------------------
-  cp -R /opt/openhab/demo-configuration/configurations/* /etc/openhab/
-  ln -s /opt/openhab/demo-configuration/addons/* /opt/openhab/addons/
-  ln -s /etc/openhab/openhab_default.cfg /etc/openhab/openhab.cfg
+  cp -r /opt/openhab/configurations/* /etc/openhab/ && rm -r /opt/openhab/configurations
+  ln -s /etc/openhab /opt/openhab/configurations
+  cp -r /opt/openhab/demo-configuration/configurations/* /etc/openhab/ && rm -r /opt/openhab/demo-configuration/configurations/*
+  cp -r /opt/openhab/demo-configuration/addons/* /opt/openhab/addons/ && rm -r /opt/openhab/demo-configuration/addons/*
+  cp /etc/openhab/openhab_default.cfg /etc/openhab/openhab.cfg
 fi
 
 ######################

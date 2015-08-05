@@ -25,5 +25,4 @@ unzip -q -d /opt/openhab/addons-available /tmp/distribution-addons.zip
 unzip -q -d /opt/openhab/demo-configuration /tmp/demo-openhab.zip
 chmod +x /opt/openhab/start.sh
 mv /tmp/org.openhab.io.myopenhab-1.7.0.jar /opt/openhab/addons-available
-mv /opt/openhab/configurations /etc/openhab
-ln -s /etc/openhab /opt/openhab/configurations
+mkdir /etc/openhab

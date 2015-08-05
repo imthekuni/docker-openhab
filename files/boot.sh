@@ -48,6 +48,19 @@ else
   cp /etc/openhab/openhab_default.cfg /etc/openhab/openhab.cfg
 fi
 
+## Install HABmin if it isn't already installed
+if [ -d /opt/openhab/webapps/habmin ]
+then
+  echo HABmin is already installed
+else
+  echo Installing HABmin
+  echo Copying HABmin addon files to persistant storage and to the addons directory
+  cp -r /opt/openhab/habmin /etc/openhab/habmin
+  cp -rv /etc/openhab/habmin/addons/* /opt/openhab/addons/
+  echo Linking the HABmin to the webapps directory
+  ln -s /etc/openhab/habmin/webapps/habmin /opt/openhab/webapps/habmin
+fi
+  
 ######################
 # Decide how to launch
 

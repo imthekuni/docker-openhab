@@ -11,7 +11,7 @@ If you do not have a openHAB configuration yet, you can start this Docker withou
 
 PULL
 =======
-```docker pull jshridha/openhab:1.7.0-release-20150729b```
+```docker pull jshridha/openhab:1.7.0-release-20150805c```
 
 Building
 ========
@@ -23,26 +23,7 @@ Running
 
 * The image exposes openHAB ports 8080, 8443, 5555 and 9001 (supervisord).
 * It expects you to make a configurations directory on the host to /etc/openhab.  This allows you to inject your openhab configuration into the container (see example below).
-* To enable specific plugins, add a file with name addons.cfg in the configuration directory which lists all addons you want to add.
-
-Example content for addons.cfg:
-```
-org.openhab.action.mail
-org.openhab.action.squeezebox
-org.openhab.action.xmpp
-org.openhab.binding.exec
-org.openhab.binding.http
-org.openhab.binding.knx
-org.openhab.binding.mqtt
-org.openhab.binding.networkhealth
-org.openhab.binding.serial
-org.openhab.binding.squeezebox
-org.openhab.io.squeezeserver
-org.openhab.persistence.cosm
-org.openhab.persistence.db4o
-org.openhab.persistence.gcal
-org.openhab.persistence.rrd4j
-```
+* If no configuration is initially specified, the demo files are used and copied to the volume moutn path (/etc/openhab)
 
 * The openHAB process is managed using supervisord.  You can manage the process (and view logs) by exposing port 9001.
 * The container supports starting without network (--net="none"), and adding network interfaces using pipework.
@@ -53,26 +34,22 @@ org.openhab.persistence.rrd4j
 Europe/Brussels
 ```
 
-**Example**: run command (with your openHAB config)
+**Example**: run command (with or without your openHAB config)
 ```
-docker run -d -p 8080:8080 -v /tmp/configuration:/etc/openhab/ jshridha/openhab:1.7.0-release-20150729b
+docker run -d -p 8080:8080 -v /mnt/cache/appdata/openhab/config:/etc/openhab/ jshridha/openhab:1.7.0-release-20150805c
 ```
 
-**Example**: run command (with Demo)
+**Example**: run command (only Demo)
 ```
-docker run -d -p 8080:8080 jshridha/openhab:1.7.0-release-20150729b
-```
-**Example**: Map configuration and logging directory as well as allow access to Supervisor:
-```
-docker run -d -p 8080:8080 -p 9001:9001 -v /tmp/configurations/:/etc/openhab -v /tmp/logs:/opt/openhab/logs wetware/openhab
-```
-**Example**: run demo configuration:
-```
-docker run -d -p 8080:8080 jshridha/openhab:1.7.0-release-20150729b
+docker run -d -p 8080:8080 jshridha/openhab:1.7.0-release-20150805c
 ```
 Start the demo with:
 ```
 http://[IP-of-Docker-Host]:8080/openhab.app?sitemap=demo
+```
+**Example**: Map configuration and logging directory as well as allow access to Supervisor:
+```
+docker run -d -p 8080:8080 -p 9001:9001 -v /mnt/cache/appdata/openhab/config:/etc/openhab -v /mnt/cache/appdata/openhab/logs:/opt/openhab/logs jshridha/openhab:1.7.0-release-20150805c
 ```
 Access Supervisor with:
 ```
@@ -81,15 +58,9 @@ http://[IP-of-Docker-Host]:9001
 HABmin
 =======
 
-HABmin is not included in this deployment.  However you can easily add is as follows:
+HABmin is included by default in this image. Access it by browsing to:
 ```
-docker run -d -p 8080:8080 -v /<your_location>/webapps/habmin:/opt/openhab/webapps/habmin -v /<your_location>/openhab/config:/etc/openhab -v /<your_location>/openhab/addons-available/habmin:/opt/openhab/addons-available/habmin jshridha/openhab:1.7.0-release-20150729b
-```
-
-Then add these lines to addon.cfg
-```
-habmin/org.openhab.binding.zwave
-habmin/org.openhab.io.habmin
+http://[IP-of-Docker-Host]:8080/habmin/
 ```
 
 Contributors
@@ -100,3 +71,4 @@ Contributors
 * dprus
 * tdeckers
 * jshridha
+* wetware

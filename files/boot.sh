@@ -34,6 +34,9 @@ if [ -f $CONFIG_DIR/openhab.cfg ]
 then
   echo configuration found.
   rm -rf /tmp/demo-openhab*
+  echo Linking openhab configuration
+  rm -r /opt/openhab/configurations
+  ln -s /etc/openhab /opt/openhab/configurations
 else
   echo --------------------------------------------------------
   echo          NO openhab.cfg CONFIGURATION FOUND

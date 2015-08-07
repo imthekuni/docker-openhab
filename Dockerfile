@@ -26,11 +26,9 @@ RUN \
   cp /root/docker-files/supervisord.conf /etc/supervisor/supervisord.conf && \
   cp /root/docker-files/openhab.conf /etc/supervisor/conf.d/openhab.conf && \
   cp /root/docker-files/openhab_debug.conf /etc/supervisor/conf.d/openhab_debug.conf && \
-  cp /root/docker-files/boot.sh /usr/local/bin/boot.sh && \
   cp /root/docker-files/openhab-restart /etc/network/if-up.d/openhab-restart && \
   mkdir -p /opt/openhab/logs && \
   chmod +x /usr/local/bin/pipework && \
-  chmod +x /usr/local/bin/boot.sh && \
   chmod +x /etc/network/if-up.d/openhab-restart && \
   rm -rf /tmp/*
 
@@ -38,6 +36,9 @@ RUN \
 # Download openHAB based on Environment OPENHAB_VERSION
 #
 RUN /root/docker-files/scripts/download_openhab.sh
+
+ADD boot.sh /usr/local/bin/boot.sh
+RUN chmod +x /usr/local/bin/boot.sh
 
 RUN rm -rf /root/* && rm -rf /tmp/*
 

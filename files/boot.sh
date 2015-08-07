@@ -1,6 +1,7 @@
 #!/bin/bash
 
 CONFIG_DIR=/etc/openhab/
+PROG_DIR=/opt/openhab/
 
 ####################
 # Configure timezone
@@ -63,7 +64,16 @@ else
   echo Linking the HABmin to the webapps directory
   ln -s /etc/openhab/habmin/webapps/habmin /opt/openhab/webapps/habmin
 fi
-  
+
+## Link the webapps
+if [ -d $CONFIG_DIR/webapps ]
+then
+  echo Linking webapps
+  find /etc/openhab/webapps -maxdepth 1 -mindepth 1 -type d -exec ln -sf {} $PROG_DIR/webapps \; -exec echo Linking {} \;
+else
+  echo No webapps require linking
+fi
+
 ######################
 # Decide how to launch
 

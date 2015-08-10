@@ -46,4 +46,7 @@ EXPOSE 8080 8443 5555 9001
 
 ENV PATH /opt/jre8/bin:$PATH
 
+RUN usermod -u 99 nobody && \
+usermod -g 100 nobody
+
 CMD ["/usr/local/bin/boot.sh"]

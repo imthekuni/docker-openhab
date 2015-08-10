@@ -74,6 +74,10 @@ else
   echo No webapps require linking
 fi
 
+## Set the permissions
+chown -R nobody:users /etc/openhab
+chown -R nobody:users /opt/openhab
+
 ######################
 # Decide how to launch
 

@@ -16,7 +16,7 @@ RUN wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=acc
 RUN tar -zxC /opt -f /tmp/jre-8u45-linux-x64.tar.gz
 RUN ln -s /opt/jre1.8.0_45 /opt/jre8
 
-ENV OPENHAB_VERSION 1.7.0
+ENV OPENHAB_VERSION 1.7.1
 
 ADD files /root/docker-files/
 

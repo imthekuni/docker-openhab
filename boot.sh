@@ -28,6 +28,17 @@ else
   ln -s /etc/openhab/addons $DEST
 fi
 
+# Upgrade the addons
+if [ ! -f $CONFIG_DIR/addons/org.openhab.binding.exec-$OPENHAB_VERSION.jar ]
+then
+  echo Removing old addons...
+  rm -r $CONFIG_DIR/addons/*
+  echo Installing new addons...
+  cp -r $SOURCE/* $CONFIG_DIR/addons/
+else
+  echo Addons are up-to-date
+fi
+
 ###########################################
 # Download Demo if no configuration is given
 

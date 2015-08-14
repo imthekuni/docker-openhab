@@ -31,10 +31,10 @@ fi
 # Upgrade the addons
 if [ ! -f $CONFIG_DIR/addons/org.openhab.binding.exec-$OPENHAB_VERSION.jar ]
 then
-  echo Removing old addons...
-  rm -r $CONFIG_DIR/addons/*
-  echo Installing new addons...
-  cp -r $SOURCE/* $CONFIG_DIR/addons/
+  echo Old addons detected, please upgrade using the addons found at:
+  echo https://bintray.com/artifact/download/openhab/bin/distribution-$OPENHAB_VERSION-demo.zip
+  echo or
+  echo https://openhab.ci.cloudbees.com/job/openHAB/lastBuild/artifact/distribution/target/distribution-1.8.0-SNAPSHOT-demo.zip
 else
   echo Addons are up-to-date
 fi

@@ -93,7 +93,7 @@ chmod -R 775 /opt/openhab
 
 ######################
 # Decide how to launch
-
+rm -rf /tmp/
 ETH0_FOUND=`grep "eth0" /proc/net/dev`
 
 if [ -n "$ETH0_FOUND" ] ;

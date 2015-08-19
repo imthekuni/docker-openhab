@@ -20,11 +20,12 @@ fi
 SOURCE=/opt/openhab/addons-available
 DEST=/opt/openhab/addons
 
-if [ -d $CONFIG_DIR/addons ]
-then
-  ln -s /etc/openhab/addons $DEST
-else
+if [ ! -d $CONFIG_DIR/addons ]
   cp -r $SOURCE $CONFIG_DIR/addons 
+fi
+
+if [ ! -d $DEST ]
+then
   ln -s /etc/openhab/addons $DEST
 fi
 

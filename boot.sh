@@ -21,6 +21,7 @@ SOURCE=/opt/openhab/addons-available
 DEST=/opt/openhab/addons
 
 if [ ! -d $CONFIG_DIR/addons ]
+then
   cp -r $SOURCE $CONFIG_DIR/addons 
 fi
 

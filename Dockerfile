@@ -6,15 +6,20 @@ FROM ubuntu:14.04
 RUN apt-get -y update && \
   apt-get -y upgrade && \
   apt-get -y install unzip supervisor wget ssh etherwake && \
-  apt-get -y clean
+  apt-get -y clean && \
+  rm -rf /usr/share/locale/* && \
+  rm -rf /usr/share/man/* && \
+  rm -rf /tmp/*
+
 
 WORKDIR /root
 
 # Download and install Oracle JDK
 # For direct download see: http://stackoverflow.com/questions/10268583/how-to-automate-download-and-installation-of-java-jdk-on-linux
-RUN wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" -O /tmp/jre-8u45-linux-x64.tar.gz http://download.oracle.com/otn-pub/java/jdk/8u45-b14/jre-8u45-linux-x64.tar.gz
-RUN tar -zxC /opt -f /tmp/jre-8u45-linux-x64.tar.gz
-RUN ln -s /opt/jre1.8.0_45 /opt/jre8
+RUN wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" -O /tmp/jre-8u45-linux-x64.tar.gz http://download.oracle.com/otn-pub/java/jdk/8u45-b14/jre-8u45-linux-x64.tar.gz && \
+    tar -zxC /opt -f /tmp/jre-8u45-linux-x64.tar.gz && \
+	ln -s /opt/jre1.8.0_45 /opt/jre8 && \
+	rm -rf /tmp/*
 
 ENV OPENHAB_VERSION 1.7.1
 

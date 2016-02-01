@@ -1,4 +1,4 @@
-# Openhab 1.6.2
+# Openhab 1.8.0
 # * configuration is injected
 #
 FROM ubuntu:14.04
@@ -21,7 +21,7 @@ RUN wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=acc
 	ln -s /opt/jre1.8.0_45 /opt/jre8 && \
 	rm -rf /tmp/*
 
-ENV OPENHAB_VERSION 1.7.1
+ENV OPENHAB_VERSION 1.8.0
 
 ADD files /root/docker-files/
 

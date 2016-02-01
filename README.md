@@ -31,17 +31,17 @@ Running
 
 **Example**: content for timezone:
 ```
-Europe/Brussels
+America/Phoenix
 ```
 
 **Example**: run command (with or without your openHAB config)
 ```
-docker run -d -p 8080:8080 -v /mnt/cache/appdata/openhab/config:/etc/openhab/ jshridha/openhab:1.7.0-release-20150819b
+docker run -d -p 8080:8080 -v /mnt/cache/appdata/openhab/config:/etc/openhab/ imthekuni/SNAPSHOT
 ```
 
 **Example**: run command (only Demo)
 ```
-docker run -d -p 8080:8080 jshridha/openhab:1.7.0-release-20150819b
+docker run -d -p 8080:8080 imthekuni/openhab:SNAPSHOT
 ```
 Start the demo with:
 ```
@@ -49,7 +49,7 @@ http://[IP-of-Docker-Host]:8080/openhab.app?sitemap=demo
 ```
 **Example**: Map configuration and logging directory as well as allow access to Supervisor:
 ```
-docker run -d -p 8080:8080 -p 9001:9001 -v /mnt/cache/appdata/openhab/config:/etc/openhab -v /mnt/cache/appdata/openhab/logs:/opt/openhab/logs jshridha/openhab:1.7.0-release-20150819b
+docker run -d -p 8080:8080 -p 9001:9001 -v /mnt/cache/appdata/openhab/config:/etc/openhab -v /mnt/cache/appdata/openhab/logs:/opt/openhab/logs imthekuni/openhab:SNAPSHOT
 ```
 Access Supervisor with:
 ```

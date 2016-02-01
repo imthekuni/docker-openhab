@@ -7,11 +7,11 @@ Docker image for Openhab
 Official DEMO Included
 ========
 
-If you do not have a openHAB configuration yet, you can start this Docker without one. The official openHAB DEMO will be started. 
+If you do not have a openHAB configuration yet, you can start this Docker without one. The official openHAB DEMO will be started.
 
 PULL
 =======
-```docker pull jshridha/openhab:1.7.0-release-20150819b```
+```docker pull imthekuni/openhab:SNAPSHOT```
 
 Building
 ========
